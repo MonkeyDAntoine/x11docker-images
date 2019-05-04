@@ -20,9 +20,9 @@ RUN apt install -y git
 RUN apt install -y default-jdk && export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
 
 # IntelliJ
-RUN wget --output-document /tmp/ideaIU.tar.gz https://download-cf.jetbrains.com/idea/ideaIU-2019.1.1.tar.gz
-RUN tar -xzf /tmp/ideaIU.tar.gz -C /opt \
+RUN wget --output-document /tmp/ideaIU.tar.gz https://download-cf.jetbrains.com/idea/ideaIU-2019.1.1.tar.gz \
+	&& tar -xzf /tmp/ideaIU.tar.gz -C /opt \
 	&& rm /tmp/ideaIU.tar.gz \
 	&& ln -s /opt/idea-IU* /opt/idea \
 	&& ln -s /opt/idea/bin/idea.sh /usr/bin/idea \
-	&& chmod 777 -R /opt/idea*
+	&& chmod 777 -R /opt/idea*	
